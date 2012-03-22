@@ -3,7 +3,7 @@
 use Test::More tests => 1;
 
 BEGIN {
-    use_ok( 'App::texmine' ) || print "Bail out!\n";
+    use_ok( 'App::TeXMine' ) || print "Bail out!\n";
 }
 
-diag( "Testing App::texmine $App::texmine::VERSION, Perl $], $^X" );
+diag( "Testing App::TeXMine $App::TeXMine::VERSION, Perl $], $^X" );

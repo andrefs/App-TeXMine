@@ -1,10 +1,9 @@
-package App::texmine;
+package App::TeXMine;
 
 use 5.006;
 use strict;
 use warnings;
 use feature 'say';
-use Data::Dumper;
 
 =head1 NAME
 

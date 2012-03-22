@@ -4,10 +4,10 @@ use warnings;
 use Module::Build;
 
 my $builder = Module::Build->new(
-    module_name         => 'App::texmine',
+    module_name         => 'App::TeXMine',
     license             => 'perl',
     dist_author         => q{Andre Santos <andrefs@cpan.org>},
-    dist_version_from   => 'lib/App/texmine.pm',
+    dist_version_from   => 'lib/App/TeXMine.pm',
     build_requires => {
         'Test::More' => 0,
 		'App::Rad' => 0,
@@ -15,7 +15,7 @@ my $builder = Module::Build->new(
     requires => {
         'perl' => 5.010,
     },
-    add_to_cleanup      => [ 'App-texmine-*' ],
+    add_to_cleanup      => [ 'App-TeXMine-*' ],
     create_makefile_pl => 'traditional',
 );
 

@@ -1,4 +1,4 @@
-App-texmine
+App-TeXMine
 
 The README is used to introduce the module and provide instructions on
 how to install the module, any machine dependencies it may have (for
@@ -26,21 +26,21 @@ SUPPORT AND DOCUMENTATION
 After installing, you can find documentation for this module with the
 perldoc command.
 
-    perldoc App::texmine
+    perldoc App::TeXMine
 
 You can also look for information at:
 
     RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-texmine
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-TeXMine
 
     AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/App-texmine
+        http://annocpan.org/dist/App-TeXMine
 
     CPAN Ratings
-        http://cpanratings.perl.org/d/App-texmine
+        http://cpanratings.perl.org/d/App-TeXMine
 
     Search CPAN
-        http://search.cpan.org/dist/App-texmine/
+        http://search.cpan.org/dist/App-TeXMine/
 
 
 LICENSE AND COPYRIGHT
