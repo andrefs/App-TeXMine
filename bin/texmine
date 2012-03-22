@@ -1,0 +1,29 @@
+#!/usr/bin/env perl
+use strict; use warnings;
+use 5.14.1;
+use App::Rad qw/+App::texmine/;
+App::Rad->run();
+
+sub img
+:Help(extract all image paths used in \includegraphics or \pgfimage){
+	my $c = shift;
+	return $c->img_cmd;
+}
+
+sub url
+:Help(extract all URLs inside \url{} commands){
+ 	my $c = shift;
+	return $c->url_cmd;
+}
+
+sub bib
+:Help(extract all cited BibTeX keys){
+	my $c = shift;
+	return $c->bib_cmd;
+}
+
+sub index
+:Help(extract table of contents){
+	my $c = shift;
+	return $c->index_cmd;
+}
