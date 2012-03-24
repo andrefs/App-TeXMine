@@ -1,13 +1,13 @@
 package App::TeXMine;
 
-use 5.006;
+use 5.014;
 use strict;
 use warnings;
 use feature 'say';
 
 =head1 NAME
 
-App::texmine - extract information from LaTeX files
+App::TeXMine - extract information from LaTeX files
 
 =head1 VERSION
 
@@ -15,7 +15,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_03';
 
 
 =head1 SYNOPSIS
@@ -187,47 +187,17 @@ sub _exec_cmd {
 
 Andre Santos, C<< <andrefs at cpan.org> >>
 
-=head1 BUGS
-
-Please report any bugs or feature requests to C<bug-app-texmine at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=App-texmine>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-
-
-
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc App::texmine
+    perldoc App::TeXMine
 
+=head1 DEVELOPMENT
 
-You can also look for information at:
+=head2 Repository
 
-=over 4
-
-=item * RT: CPAN's request tracker (report bugs here)
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-texmine>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/App-texmine>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/App-texmine>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/App-texmine/>
-
-=back
-
-
-=head1 ACKNOWLEDGEMENTS
-
+L<http://github.com/andrefs/app-texmine>
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -242,4 +212,4 @@ See http://dev.perl.org/licenses/ for more information.
 
 =cut
 
-1; # End of App::texmine
+1; # End of App::TeXMine

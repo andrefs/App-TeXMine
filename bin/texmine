@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 use strict; use warnings;
 use 5.14.1;
-use App::Rad qw/+App::texmine/;
+use App::Rad qw/+App::TeXMine/;
 App::Rad->run();
 
 sub img
@@ -27,3 +27,53 @@ sub index
 	my $c = shift;
 	return $c->index_cmd;
 }
+
+=head1 NAME
+  
+texmine - extract information from LaTeX files
+
+=head1 SYNOPSIS
+
+texmine [command] file.tex
+
+Run C<texmine help> for more options.
+
+=head1 COMMANDS
+
+=over 4
+
+=item B<index>
+
+Extract the table of contents (generated from the \chapter,\section
+and \subsection commands found).
+
+=item B<url>
+
+Extract all the URLs mentioned (generated from the \url commands
+found).
+
+=item B<bib>
+
+Extract all the citations used (generated from the \cite commands
+found).
+
+=item B<img>
+
+Extract all the image references found (generated from the 
+\pgfimage and \includegraphics commands found).
+
+=back
+
+=head1 SEE ALSO
+
+L<App::TeXMine>
+
+=head1 COPYRIGHT
+
+Copyright 2012 Andre Santos.
+
+=head1 AUTHOR
+
+Andre Santos
+
+=cut

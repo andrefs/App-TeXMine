@@ -13,7 +13,7 @@ my $builder = Module::Build->new(
 		'App::Rad' => 0,
     },
     requires => {
-        'perl' => 5.010,
+        'perl' => 5.014,
     },
     add_to_cleanup      => [ 'App-TeXMine-*' ],
     create_makefile_pl => 'traditional',
