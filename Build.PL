@@ -15,9 +15,11 @@ my $builder = Module::Build->new(
     requires => {
         'perl' => 5.014,
     },
-	meta_add => {
-		repository => 'http://github.com/andrefs/app-texmine',
-		bugtracker => 'http://github.com/andrefs/app-texmine/issues',
+	meta_merge => {
+		resources => {
+			repository => 'http://github.com/andrefs/app-texmine',
+			bugtracker => 'http://github.com/andrefs/app-texmine/issues',
+		},
 	},
     add_to_cleanup      => [ 'App-TeXMine-*' ],
     create_makefile_pl => 'traditional',
