@@ -5,18 +5,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-=head1 NAME
-
-App::TeXMine - extract information from LaTeX files
-
-=head1 VERSION
-
-Version 0.01
-
-=cut
-
-our $VERSION = '0.01_05';
-
+# ABSTRACT: extract information from LaTeX files
 
 =head1 SYNOPSIS
 

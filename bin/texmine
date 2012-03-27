@@ -28,6 +28,10 @@ sub index
 	return $c->index_cmd;
 }
 
+
+# ABSTRACT: extract information from LaTeX files
+# PODNAME: texmine
+
 =head1 NAME
   
 texmine - extract information from LaTeX files
