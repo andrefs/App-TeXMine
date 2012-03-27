@@ -1,7 +1,7 @@
-package App::TeXMine;
 
 use 5.014;
 use strict;
+package App::TeXMine;
 use warnings;
 use feature 'say';
 
