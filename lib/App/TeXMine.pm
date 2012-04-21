@@ -48,6 +48,7 @@ sub img {
 		}
 	}
 	close $fh;
+	return 0+@$res if $options->{c};
 	return join "\n",(defined($options->{s}) ? sort { lc($a) cmp lc($b) } @$res : @$res);
 }
 
@@ -82,6 +83,7 @@ sub url{
 		}
 	}
 	close $fh;
+	return 0+@$res if $options->{c};
 	return join "\n",(defined($options->{s}) ? sort { lc($a) cmp lc($b) } @$res : @$res);
 }
 
@@ -114,6 +116,7 @@ sub bib {
 		}
 	}
 	close $fh;
+	return 0+@$res if $options->{c};
 	return join "\n",(defined($options->{s}) ? sort { lc($a) cmp lc($b) } @$res : @$res);
 }
 

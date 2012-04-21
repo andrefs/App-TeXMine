@@ -80,6 +80,11 @@ Process whole document (default is to ignore everything after '\end{document}').
 
 Sort lines of output (not applicable to 'index' command).
 
+=item B<-c>
+
+Suppress normal output; instead print a count of the output lines
+(not applicable to 'index' command).
+
 =back
 
 =head1 SEE ALSO
