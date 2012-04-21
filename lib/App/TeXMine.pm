@@ -48,7 +48,7 @@ sub img {
 		}
 	}
 	close $fh;
-	return join "\n",@$res;
+	return join "\n",(defined($options->{s}) ? sort { lc($a) cmp lc($b) } @$res : @$res);
 }
 
 
@@ -82,7 +82,7 @@ sub url{
 		}
 	}
 	close $fh;
-	return join "\n",@$res;
+	return join "\n",(defined($options->{s}) ? sort { lc($a) cmp lc($b) } @$res : @$res);
 }
 
 =head2 bib_cmd
@@ -110,12 +110,11 @@ sub bib {
 			my $comm = ${^MATCH};
 			my $cite = $comm;
 			$cite =~ s/^.*?{(.*?)}/$1/;
-			say foreach split /,/,$cite ;
-			push @$res,$cite if $cite;
+			push @$res,(split /,/,$cite);
 		}
 	}
 	close $fh;
-	return join "\n",@$res;
+	return join "\n",(defined($options->{s}) ? sort { lc($a) cmp lc($b) } @$res : @$res);
 }
 
 =head2 index_cmd

@@ -76,6 +76,10 @@ Extract all the image references found (generated from the
 
 Process whole document (default is to ignore everything after '\end{document}').
 
+=item B<-s>
+
+Sort lines of output (not applicable to 'index' command).
+
 =back
 
 =head1 SEE ALSO
