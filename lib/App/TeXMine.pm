@@ -1,8 +1,5 @@
-
-use 5.014;
-use strict;
+use strict; use warnings;
 package App::TeXMine;
-use warnings;
 use feature 'say';
 
 # ABSTRACT: extract information from LaTeX files
@@ -45,7 +42,8 @@ sub img {
 		last if $line =~ m|\\end{document}| and ! $options->{a};
 	 	if ($line =~ /$imgpat/p) {
 			my $comm = ${^MATCH};
-			my $img = $comm =~ s/^.*?{(.*?)}/$1/r;
+			my $img = $comm;
+			$img =~ s/^.*?{(.*?)}/$1/;
 			push @$res,$img if $img;
 		}
 	}
@@ -77,7 +75,8 @@ sub url{
 		last if $line =~ m|\\end{document}| and ! $options->{a};
 	 	if ($line =~ /$urlpat/p) {
 			my $comm = ${^MATCH};
-			my $url = $comm =~ s/^.*?{(.*?)}/$1/r;
+			my $url = $comm;
+			$url =~ s/^.*?{(.*?)}/$1/;
 			say $url;
 			push @$res,$url if $url;
 		}
@@ -109,7 +108,8 @@ sub bib {
 		last if $line =~ m|\\end{document}| and ! $options->{a};
 	 	if ($line =~ /$citepat/p) {
 			my $comm = ${^MATCH};
-			my $cite = $comm =~ s/^.*?{(.*?)}/$1/r;
+			my $cite = $comm;
+			$cite =~ s/^.*?{(.*?)}/$1/;
 			say foreach split /,/,$cite ;
 			push @$res,$cite if $cite;
 		}
@@ -142,12 +142,14 @@ sub index {
 		last if $line =~ m|\\end{document}| and ! $options->{a};
 		if ($line =~ /$chpat/p) {
 			my $comm = ${^MATCH};	
-			my $chap = $comm =~ s/^.*?{(.*?)}/$1/r;
+			my $chap = $comm;
+			$chap =~ s/^.*?{(.*?)}/$1/;
 			$res.="$chap\n";
 		}
 		if ($line =~ /$secpat/p){
 			my $comm = ${^MATCH};	
-			my $sec = $comm =~ s/^.*?{(.*?)}/$1/r;
+			my $sec = $comm;
+			$sec =~ s/^.*?{(.*?)}/$1/;
 			my $tabs = 0;
 	
 			$tabs++ while ($comm =~ s/sub//g);
