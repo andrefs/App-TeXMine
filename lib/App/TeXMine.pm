@@ -28,7 +28,7 @@ such as image references, URLs, table of contens and citations.
 sub img_cmd {
 	my $c = shift;
 	my $files = $c->argv;
-	return _exec_cmd(\&img,$files);
+	return _exec_cmd(\&img,$files,$c->options);
 }
 
 =head2 img
@@ -37,11 +37,12 @@ sub img_cmd {
 
 
 sub img {
-	my $file = shift;
+	my ($file,$options) = @_;
 	my $res = [];
 	my $imgpat  = qr/\\(?:includegraphics|pgfimage).*?{.*?}/;
 	my $fh = _open_file($file);
 	while (my $line = <$fh>){
+		last if $line =~ m|\\end{document}| and ! $options->{a};
 	 	if ($line =~ /$imgpat/p) {
 			my $comm = ${^MATCH};
 			my $img = $comm =~ s/^.*?{(.*?)}/$1/r;
@@ -60,7 +61,7 @@ sub img {
 sub url_cmd {
 	my $c = shift;
 	my $files = $c->argv;
-	return _exec_cmd(\&url,$files);
+	return _exec_cmd(\&url,$files,$c->options);
 }
 
 =head2 url
@@ -68,11 +69,12 @@ sub url_cmd {
 =cut
 
 sub url{
-	my $file = shift;
+	my ($file,$options) = @_;
 	my $res = [];
 	my $urlpat  = qr/\\url{.*?}/;
 	my $fh = _open_file($file);
 	while (my $line = <$fh>){
+		last if $line =~ m|\\end{document}| and ! $options->{a};
 	 	if ($line =~ /$urlpat/p) {
 			my $comm = ${^MATCH};
 			my $url = $comm =~ s/^.*?{(.*?)}/$1/r;
@@ -91,7 +93,7 @@ sub url{
 sub bib_cmd {
 	my $c = shift;
 	my $files = $c->argv;
-	return _exec_cmd(\&bib,$files);
+	return _exec_cmd(\&bib,$files,$c->options);
 }
 
 =head2 bib
@@ -99,11 +101,12 @@ sub bib_cmd {
 =cut
 
 sub bib {
-	my $file = shift;
+	my ($file,$options) = @_;
 	my $res = [];
 	my $citepat = qr/\\(?:no)?cite{.*?}/;
 	my $fh = _open_file($file);
 	while (my $line = <$fh>){
+		last if $line =~ m|\\end{document}| and ! $options->{a};
 	 	if ($line =~ /$citepat/p) {
 			my $comm = ${^MATCH};
 			my $cite = $comm =~ s/^.*?{(.*?)}/$1/r;
@@ -122,7 +125,7 @@ sub bib {
 sub index_cmd {
 	my $c = shift;
 	my $files = $c->argv;
-	return _exec_cmd(\&index,$files);
+	return _exec_cmd(\&index,$files,$c->options);
 }
 
 =head2 index
@@ -130,12 +133,13 @@ sub index_cmd {
 =cut
 
 sub index {
-	my $file = shift;
+	my ($file,$options) = @_;
 	my $res;
 	my $secpat  = qr/\\(?:sub)*section{.*?}/;
 	my $chpat   = qr/\\chapter{.*?}/;
 	my $fh = _open_file($file);
 	while (my $line = <$fh>) {
+		last if $line =~ m|\\end{document}| and ! $options->{a};
 		if ($line =~ /$chpat/p) {
 			my $comm = ${^MATCH};	
 			my $chap = $comm =~ s/^.*?{(.*?)}/$1/r;
@@ -164,10 +168,10 @@ sub _open_file {
 }
 
 sub _exec_cmd {
-	my ($func,$files) = @_;
+	my ($func,$files,$options) = @_;
 	my $res;
 	foreach my $file (@$files){
-		$res.= $func->($file);
+		$res.= $func->($file,$options);
 	}
 	return $res;
 }
