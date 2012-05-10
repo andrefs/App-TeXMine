@@ -154,7 +154,7 @@ sub index {
 			$sec =~ s/^.*?{(.*?)}/$1/;
 			my $tabs = 0;
 	
-			$tabs++ while ($comm =~ s/sub//g);
+			$tabs = $comm =~ s/sub//g;
 			
 			$res.= "    "x$tabs;
 			$res.=" - $sec\n";
